@@ -34,3 +34,8 @@ class Grafo:
             vertices_adjacentes.append(adj[0])
         
         return vertices_adjacentes
+    
+    def d(self, x):
+        # O grau de um vértice é o número de arestas incidentes a ele
+        return len(self.lista_adjacencia[x])
+

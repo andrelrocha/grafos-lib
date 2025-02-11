@@ -29,6 +29,12 @@ def main():
     print("Vizinhança do Digrafo 1")
     print(d.viz(1))
 
+    print("Grau do vértice 1 no Grafo")
+    print(g.d(1))
+
+    print("Grau do vértice 1 no Digrafo")
+    print(d.d(1))
+
 
 if __name__ == "__main__":
     main()

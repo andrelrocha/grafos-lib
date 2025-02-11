@@ -28,3 +28,16 @@ class Digrafo(Grafo):
             outneighborhood.append(adjacente[0])
 
         return inneighborhood + outneighborhood
+    
+    def d(self, v):
+        in_degree = 0
+        for i in range(1, self.num_vertices + 1):
+            for adjacente in self.lista_adjacencia[i]:
+                if adjacente[0] == v:
+                    in_degree += 1
+                    break  
+
+        out_degree = len(self.lista_adjacencia[v])
+        
+        return in_degree + out_degree
+
