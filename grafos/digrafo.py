@@ -40,4 +40,7 @@ class Digrafo(Grafo):
         out_degree = len(self.lista_adjacencia[v])
         
         return in_degree + out_degree
+    
+    def w(self, x, y):
+        return super().w(x, y)
 

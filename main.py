@@ -5,8 +5,8 @@ def main():
     print("Testes de Grafo e Digrafo")
     print("Grafo não direcionado")
     g = Grafo(5)
-    g.add_aresta(1, 2)
-    g.add_aresta(1, 3)
+    g.add_aresta(1, 2, 2)
+    g.add_aresta(1, 3, 3)
     g.add_aresta(2, 3)
     g.add_aresta(3, 4)
     g.add_aresta(4, 5)
@@ -15,8 +15,8 @@ def main():
 
     print("Digrafo direcionado")
     d = Digrafo(5)
-    d.add_aresta(1, 2)
-    d.add_aresta(1, 3)
+    d.add_aresta(1, 2, 10)
+    d.add_aresta(1, 3, 5)
     d.add_aresta(2, 3)
     d.add_aresta(3, 4)
     d.add_aresta(4, 5)
@@ -34,6 +34,12 @@ def main():
 
     print("Grau do vértice 1 no Digrafo")
     print(d.d(1))
+
+    print("Peso da aresta 2-1 no Grafo")
+    print(g.w(2, 1))
+
+    print("Peso da aresta 2-1 no Digrafo")
+    print(d.w(2, 1))
 
 
 if __name__ == "__main__":

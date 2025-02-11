@@ -36,6 +36,14 @@ class Grafo:
         return vertices_adjacentes
     
     def d(self, x):
-        # O grau de um vértice é o número de arestas incidentes a ele
         return len(self.lista_adjacencia[x])
 
+
+    def w(self, x, y):
+        # Percorre a lista de adjacências de x
+        for adjacente in self.lista_adjacencia[x]:
+            if adjacente[0] == y:  # Se o vértice adjacente for y
+                return adjacente[1]  # Retorna o peso da aresta (o segundo valor da tupla)
+
+        print(f"não existe aresta entre {x} e {y}")
+        return None
