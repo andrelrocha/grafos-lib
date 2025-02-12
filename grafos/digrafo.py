@@ -29,18 +29,24 @@ class Digrafo(Grafo):
 
         return inneighborhood + outneighborhood
     
-    def d(self, v):
+    def d(self, x):
         in_degree = 0
         for i in range(1, self.num_vertices + 1):
             for adjacente in self.lista_adjacencia[i]:
-                if adjacente[0] == v:
+                if adjacente[0] == x:
                     in_degree += 1
                     break  
 
-        out_degree = len(self.lista_adjacencia[v])
+        out_degree = len(self.lista_adjacencia[x])
         
         return in_degree + out_degree
     
     def w(self, x, y):
         return super().w(x, y)
+    
+    def mind(self):
+        return super().mind()
+    
+    def maxd(self):
+        return super().maxd()
 

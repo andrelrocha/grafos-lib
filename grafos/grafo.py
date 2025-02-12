@@ -40,10 +40,35 @@ class Grafo:
 
 
     def w(self, x, y):
-        # Percorre a lista de adjacências de x
         for adjacente in self.lista_adjacencia[x]:
-            if adjacente[0] == y:  # Se o vértice adjacente for y
-                return adjacente[1]  # Retorna o peso da aresta (o segundo valor da tupla)
+            if adjacente[0] == y:  
+                return adjacente[1] 
 
         print(f"não existe aresta entre {x} e {y}")
         return None
+
+    def mind(self):
+        if self.num_vertices == 0:
+            return None 
+
+        menor_grau = self.num_vertices 
+
+        for x in self.lista_adjacencia:
+            grau = self.d(x)  
+            if grau < menor_grau:
+                menor_grau = grau 
+
+        return menor_grau
+
+    def maxd(self):
+        if self.num_vertices == 0:
+            return None 
+
+        maior_grau = 0
+
+        for x in self.lista_adjacencia:
+            grau = self.d(x)  
+            if grau > maior_grau:
+                maior_grau = grau 
+
+        return maior_grau

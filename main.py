@@ -41,6 +41,15 @@ def main():
     print("Peso da aresta 2-1 no Digrafo")
     print(d.w(2, 1))
 
+    print("Vértice de menor grau no Grafo")
+    print(g.mind())
+    print("Vértice de menor grau no Digrafo")
+    print(d.mind())
+    print("Vértice de maior grau no Grafo")
+    print(g.maxd())
+    print("Vértice de maior grau no Digrafo")
+    print(d.maxd())
+
 
 if __name__ == "__main__":
     main()
