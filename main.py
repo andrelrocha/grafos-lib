@@ -50,6 +50,17 @@ def main():
     print("Vértice de maior grau no Digrafo")
     print(d.maxd())
 
+    print("BFS no Grafo a partir do vértice 1")
+    d_grafo, pi_grafo = g.bfs(1)
+    print("Distâncias:", d_grafo)
+    print("Pais:", pi_grafo)
+
+    print("BFS no Digrafo a partir do vértice 1")
+    d_digrafo, pi_digrafo = d.bfs(1)
+    print("Distâncias:", d_digrafo)
+    print("Pais:", pi_digrafo)
+
+
 
 if __name__ == "__main__":
     main()

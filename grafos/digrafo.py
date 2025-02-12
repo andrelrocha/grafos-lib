@@ -49,4 +49,7 @@ class Digrafo(Grafo):
     
     def maxd(self):
         return super().maxd()
+    
+    def bfs(self, v):
+        return super().bfs(v)
 

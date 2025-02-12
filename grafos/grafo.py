@@ -72,3 +72,28 @@ class Grafo:
                 maior_grau = grau 
 
         return maior_grau
+    
+    def bfs(self, v):
+        d = {}
+        pi = {}
+
+        for i in self.lista_adjacencia:
+            d[i] = float('inf')  
+            pi[i] = None 
+
+        d[v] = 0
+
+        fila = [v]
+
+        while len(fila) > 0:
+            u = fila.pop(0) 
+
+            for vizinho, _ in self.lista_adjacencia[u]:
+                if d[vizinho] == float('inf'):  
+                    d[vizinho] = d[u] + 1 
+                    pi[vizinho] = u
+                    fila.append(vizinho)  
+
+        return d, pi
+
+
