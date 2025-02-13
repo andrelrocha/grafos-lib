@@ -73,6 +73,16 @@ def main():
     print("Tempo de descoberta Digrafo:", x_ini)
     print("Tempo de término Digrafo:", x_fim)
 
+    print("Bellman-Ford no Grafo")
+    dis, pi = g.bf(1)
+    print("Distâncias:", dis)
+    print("Pais:", pi)
+
+    print("Bellman-Ford no Digrafo")
+    dis, pi = d.bf(1)
+    print("Distâncias:", dis)
+    print("Pais:", pi)
+
 
 if __name__ == "__main__":
     main()

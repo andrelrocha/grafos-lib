@@ -50,10 +50,13 @@ class Digrafo(Grafo):
     def maxd(self):
         return super().maxd()
     
-    def bfs(self, x):
-        return super().bfs(x)
+    def bfs(self, v):
+        return super().bfs(v)
     
-    def dfs(self, x):
-        return super().dfs(x)
+    def dfs(self, v):
+        return super().dfs(v)
+    
+    def bf(self, v):
+        return super().bf(v)
     
 

@@ -2,7 +2,7 @@ class Grafo:
     def __init__(self, num_vertices, ponderado=True):
         self.num_vertices = num_vertices
         self.ponderado = ponderado
-         #cria um dicionário onde cada chave e um vértice do grafo e o valor e uma lista dos vertices adjacentes a ele
+        #cria um dicionário onde cada chave e um vértice do grafo e o valor e uma lista dos vertices adjacentes a ele
         self.lista_adjacencia = {i: [] for i in range(1, num_vertices + 1)} 
         self.graus = []
         for _ in range(num_vertices + 1):
@@ -125,5 +125,29 @@ class Grafo:
 
         return pi, x_ini, x_fim
 
+    def bf(self, v):
+        d = {}  
+        pi = {}  
+
+        for i in range(1, self.num_vertices + 1):
+            d[i] = float('inf')  
+            pi[i] = None  
+            
+        d[v] = 0
+
+        for _ in range(self.num_vertices - 1):
+            for x in range(1, self.num_vertices + 1): 
+                for y, peso in self.lista_adjacencia[x]:  
+                    if d[x] != float('inf') and d[x] + peso < d[y]: 
+                        d[y] = d[x] + peso
+                        pi[y] = x
+
+        for x in range(1, self.num_vertices + 1):
+            for y, peso in self.lista_adjacencia[x]: 
+                if d[x] != float('inf') and d[x] + peso < d[y]:  # Se for possível relaxar
+                    print("ciclo negativo no grafo")
+                    return
+
+        return d, pi
 
 
