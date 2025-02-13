@@ -166,4 +166,6 @@ class Grafo:
         return d, pi
 
     def __str__(self):
-        return str(self.lista_adjacencia)
+        for i in self.lista_adjacencia:
+            print(f"{i}: {self.lista_adjacencia[i]}")
+
