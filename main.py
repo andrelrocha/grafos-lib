@@ -61,6 +61,18 @@ def main():
     print("Pais:", pi_digrafo)
 
 
+    print("DFS no Grafo")
+    pi, x_ini, x_fim = g.dfs(1)
+    print("Pais Grafo:", pi)
+    print("Tempo de descoberta Grafo:", x_ini)
+    print("Tempo de término Grafo:", x_fim)
+
+    print("DFS no Digrafo")
+    pi, x_ini, x_fim = d.dfs(1)
+    print("Pais Digrafo:", pi)
+    print("Tempo de descoberta Digrafo:", x_ini)
+    print("Tempo de término Digrafo:", x_fim)
+
 
 if __name__ == "__main__":
     main()

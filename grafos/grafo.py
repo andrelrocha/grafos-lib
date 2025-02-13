@@ -96,4 +96,34 @@ class Grafo:
 
         return d, pi
 
+    def dfs(self, x):
+        tempo = [0] 
+        pi = {}
+        x_ini = {}
+        x_fim = {}
+        visitado = set()
+
+        for i in self.lista_adjacencia:
+            pi[i] = None
+            x_ini[i] = -1
+            x_fim[i] = -1
+
+        def dfs_aux(y, tempo):
+            tempo[0] += 1
+            x_ini[y] = tempo[0]
+            visitado.add(y)
+
+            for vizinho, _ in self.lista_adjacencia[y]:
+                if vizinho not in visitado:
+                    pi[vizinho] = y
+                    dfs_aux(vizinho, tempo)
+
+            tempo[0] += 1
+            x_fim[y] = tempo[0]
+
+        dfs_aux(x, tempo)
+
+        return pi, x_ini, x_fim
+
+
 
