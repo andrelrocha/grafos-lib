@@ -50,6 +50,8 @@ def main():
     print("Vértice de maior grau no Digrafo")
     print(d.maxd())
 
+    print('--------------------------------------')
+
     print("BFS no Grafo a partir do vértice 1")
     d_grafo, pi_grafo = g.bfs(1)
     print("Distâncias:", d_grafo)
@@ -60,6 +62,7 @@ def main():
     print("Distâncias:", d_digrafo)
     print("Pais:", pi_digrafo)
 
+    print('--------------------------------------')
 
     print("DFS no Grafo")
     pi, x_ini, x_fim = g.dfs(1)
@@ -73,6 +76,8 @@ def main():
     print("Tempo de descoberta Digrafo:", x_ini)
     print("Tempo de término Digrafo:", x_fim)
 
+    print('--------------------------------------')
+
     print("Bellman-Ford no Grafo")
     dis, pi = g.bf(1)
     print("Distâncias:", dis)
@@ -83,6 +88,17 @@ def main():
     print("Distâncias:", dis)
     print("Pais:", pi)
 
+    print('--------------------------------------')
+
+    print("Dijkstra no Grafo")
+    dis, pi = g.dijkstra(1)
+    print("Distâncias:", dis)
+    print("Pais:", pi)
+
+    print("Dijkstra no Digrafo")
+    dis, pi = d.dijkstra(1)
+    print("Distâncias:", dis)
+    print("Pais:", pi)
 
 if __name__ == "__main__":
     main()

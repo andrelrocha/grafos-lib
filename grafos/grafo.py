@@ -1,3 +1,5 @@
+import heapq
+
 class Grafo:
     def __init__(self, num_vertices, ponderado=True):
         self.num_vertices = num_vertices
@@ -150,4 +152,31 @@ class Grafo:
 
         return d, pi
 
+    def dijkstra(self, v):
+        d = {}  
+        pi = {}  
+
+        for i in range(1, self.num_vertices + 1):
+            d[i] = float('inf')  
+            pi[i] = None  
+
+
+        d[v] = 0  
+
+        min_heap = [(0, v)] 
+
+        while len(min_heap) > 0:
+            dist_x, x = heapq.heappop(min_heap) 
+
+            if dist_x > d[x]:
+                continue
+
+            for adjacente, peso in self.lista_adjacencia[x]:
+                # relaxamento da aresta
+                if d[x] + peso < d[adjacente]:
+                    d[adjacente] = d[x] + peso
+                    pi[adjacente] = x
+                    heapq.heappush(min_heap, (d[adjacente], adjacente)) 
+
+        return d, pi
 

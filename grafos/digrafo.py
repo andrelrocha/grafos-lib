@@ -59,4 +59,5 @@ class Digrafo(Grafo):
     def bf(self, v):
         return super().bf(v)
     
-
+    def dijkstra(self, v):
+        return super().dijkstra(v)
