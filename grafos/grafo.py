@@ -40,7 +40,6 @@ class Grafo:
     def d(self, x):
         return len(self.lista_adjacencia[x])
 
-
     def w(self, x, y):
         for adjacente in self.lista_adjacencia[x]:
             if adjacente[0] == y:  
@@ -51,29 +50,15 @@ class Grafo:
 
     def mind(self):
         if self.num_vertices == 0:
-            return None 
+            return None
 
-        menor_grau = self.num_vertices 
-
-        for x in self.lista_adjacencia:
-            grau = self.d(x)  
-            if grau < menor_grau:
-                menor_grau = grau 
-
-        return menor_grau
+        return min(self.graus[1:])
 
     def maxd(self):
         if self.num_vertices == 0:
             return None 
 
-        maior_grau = 0
-
-        for x in self.lista_adjacencia:
-            grau = self.d(x)  
-            if grau > maior_grau:
-                maior_grau = grau 
-
-        return maior_grau
+        return max(self.graus[1:])
     
     def bfs(self, v):
         d = {}
@@ -180,3 +165,5 @@ class Grafo:
 
         return d, pi
 
+    def __str__(self):
+        return str(self.lista_adjacencia)

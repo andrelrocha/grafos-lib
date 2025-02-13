@@ -61,3 +61,6 @@ class Digrafo(Grafo):
     
     def dijkstra(self, v):
         return super().dijkstra(v)
+    
+    def __str__(self):
+        return super().__str__()
