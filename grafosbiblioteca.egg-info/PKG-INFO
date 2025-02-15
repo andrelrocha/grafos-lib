@@ -1,0 +1,20 @@
+Metadata-Version: 2.2
+Name: grafosbiblioteca
+Version: 0.1
+Summary: Uma biblioteca para manipulação de grafos usando lista de adjacência
+Home-page: https://github.com/andrelrocha/grafos-lib
+Author: André Rocha
+Author-email: andre.lucio@aluno.uece.br
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Teoria Grafos
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-python
+Dynamic: summary

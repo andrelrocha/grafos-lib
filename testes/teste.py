@@ -18,29 +18,25 @@ class TestesDigrafo:
                 break
 
     def encontrar_ciclo_minimo_5_arestas(self):
-        # Executa a DFS para obter os dados
         pi, x_ini, x_fim = self.digrafo.dfs(1)
 
-        # Função auxiliar para reconstruir ciclos
         def reconstruir_ciclo(vertice, vizinho, pi):
             ciclo = []
-            u = vertice
-            while u != vizinho:
-                ciclo.append(u)
-                u = pi[u]
-                if u is None:  # Se não houver predecessor, não há ciclo
+            x = vertice
+            while x != vizinho:
+                ciclo.append(x)
+                x = pi[x]
+                if x is None:
                     return None
             ciclo.append(vizinho)
             ciclo.append(vertice)
-            return ciclo[::-1]  # Retorna o ciclo invertido
+            return ciclo[::-1] 
 
-        # Verifica todos os vértices para encontrar ciclos
         for vertice in self.digrafo.lista_adjacencia:
             for vizinho, _ in self.digrafo.lista_adjacencia[vertice]:
-                if x_ini[vertice] > x_ini[vizinho] and x_fim[vertice] < x_fim[vizinho]:
-                    # Back edge detectado: vertice -> vizinho
+                if x_ini[vertice] > x_ini[vizinho] and x_fim[vertice] < x_fim[vizinho]: #procura por arestas de retorno
                     ciclo = reconstruir_ciclo(vertice, vizinho, pi)
-                    if ciclo and len(ciclo) > 5:  # Verifica se o ciclo tem mais de 5 arestas
+                    if len(ciclo) > 5: 
                         print(f"d) Ciclo com pelo menos 5 arestas: {ciclo}")
                         return ciclo
     

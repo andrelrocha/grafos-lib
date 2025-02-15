@@ -9,8 +9,6 @@ class Grafo:
         self.graus = []
         for _ in range(num_vertices + 1):
             self.graus.append(0)
-        self.cor = ["branco"] * (num_vertices + 1) 
-        self.pi = [None] * (num_vertices + 1) 
 
     def add_aresta(self, x, y, peso = 1, direcionado = False):
         if not self.ponderado:

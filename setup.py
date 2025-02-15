@@ -11,7 +11,7 @@ setup(
     url="https://github.com/andrelrocha/grafos-lib", 
     packages=find_packages(),
     install_requires=[
-        "numpy",  
+        
     ],
     classifiers=[
         "Programming Language :: Python :: 3",
