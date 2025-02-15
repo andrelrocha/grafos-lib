@@ -22,8 +22,3 @@ def parse_digrafo(path, num_vertices):
         print(f"O arquivo {path} não foi encontrado.")
     except Exception as e:
         print(f"Ocorreu um erro ao ler o arquivo: {e}")
-
-if __name__ == "__main__":
-    path = "docs/USA-road-d.NY.gr"  
-    num_vertices = 264346                
-    digrafo = parse_digrafo(path, num_vertices)

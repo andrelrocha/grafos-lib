@@ -9,6 +9,8 @@ class Grafo:
         self.graus = []
         for _ in range(num_vertices + 1):
             self.graus.append(0)
+        self.cor = ["branco"] * (num_vertices + 1) 
+        self.pi = [None] * (num_vertices + 1) 
 
     def add_aresta(self, x, y, peso = 1, direcionado = False):
         if not self.ponderado:
@@ -84,31 +86,46 @@ class Grafo:
         return d, pi
 
     def dfs(self, x):
-        tempo = [0] 
+        tempo = [0]
         pi = {}
         x_ini = {}
         x_fim = {}
-        visitado = set()
+        cor = {} 
 
-        for i in self.lista_adjacencia:
-            pi[i] = None
-            x_ini[i] = -1
-            x_fim[i] = -1
+        for v in self.lista_adjacencia:
+            pi[v] = None
+            x_ini[v] = -1
+            x_fim[v] = -1
+            cor[v] = "branco"  
 
-        def dfs_aux(y, tempo):
-            tempo[0] += 1
-            x_ini[y] = tempo[0]
-            visitado.add(y)
+        pilha = [(x, "cinza")]  
+        cor[x] = "cinza"
+        x_ini[x] = tempo[0]
+        tempo[0] += 1
 
-            for vizinho, _ in self.lista_adjacencia[y]:
-                if vizinho not in visitado:
-                    pi[vizinho] = y
-                    dfs_aux(vizinho, tempo)
+        while len(pilha) > 0:
+            vertice, status = pilha[-1]
 
-            tempo[0] += 1
-            x_fim[y] = tempo[0]
+            if status == "cinza": 
+                todos_visitados = True
+                for vizinho, _ in self.lista_adjacencia[vertice]:
+                    if cor[vizinho] == "branco": 
+                        pi[vizinho] = vertice
+                        cor[vizinho] = "cinza" 
+                        x_ini[vizinho] = tempo[0]
+                        tempo[0] += 1
+                        pilha.append((vizinho, "cinza"))  
+                        todos_visitados = False
+                        break  
 
-        dfs_aux(x, tempo)
+                if todos_visitados:
+                    pilha[-1] = (vertice, "preto") 
+
+            elif status == "preto":
+                x_fim[vertice] = tempo[0]
+                tempo[0] += 1
+                cor[vertice] = "preto" 
+                pilha.pop()
 
         return pi, x_ini, x_fim
 
@@ -168,4 +185,5 @@ class Grafo:
     def __str__(self):
         for i in self.lista_adjacencia:
             print(f"{i}: {self.lista_adjacencia[i]}")
+        return ""
 
